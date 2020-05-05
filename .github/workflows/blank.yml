@@ -17,13 +17,9 @@ jobs:
         uses: einaregilsson/build-number@v2 
         id: buildnumber
         with:
-          token: ${{secrets.github_token}} 
-          prefix: production
-      # - uses: rymndhng/release-on-push-action@master
-      #   with:
-      #     bump_version_scheme: patch
+          token: ${{secrets.github_token}}
       - uses: peterjgrainger/action-create-branch@v1.0.0
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: "release-${{ steps.buildnumber.outputs.build_number }}"
+          branch: "production-release-${{ steps.buildnumber.outputs.build_number }}"
