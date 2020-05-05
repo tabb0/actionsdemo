@@ -18,9 +18,6 @@ jobs:
         id: buildnumber
         with:
           token: ${{secrets.github_token}}
-      # - uses: rymndhng/release-on-push-action@master
-      #   with:
-      #     bump_version_scheme: patch
       - uses: peterjgrainger/action-create-branch@v1.0.0
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
