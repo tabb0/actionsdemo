@@ -36,4 +36,4 @@ jobs:
           subject: Github Actions job result
           body: Release job of ${{github.repository}} completed successfully!
           to: gustavor@loymark.com
-          from: githubaction@loymark.com
+          from: gustavor@loymark.com
