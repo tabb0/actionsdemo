@@ -26,10 +26,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: "production-release-${{ steps.buildnumber.outputs.build_number }}"
-      # Creates a release 
-      - name: Create GitHub release
-        uses: Roang-zero1/github-create-release-action@production
-        with:
-          version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
