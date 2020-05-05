@@ -17,7 +17,7 @@ jobs:
         uses: einaregilsson/build-number@v2 
         id: buildnumber
         with:
-          token: ${{secrets.github_token}} 
+          token: ${{secrets.github_token}}
       # - uses: rymndhng/release-on-push-action@master
       #   with:
       #     bump_version_scheme: patch
@@ -25,4 +25,4 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: "release-${{ steps.buildnumber.outputs.build_number }}"
+          branch: "production-release-${{ steps.buildnumber.outputs.build_number }}"
