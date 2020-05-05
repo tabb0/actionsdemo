@@ -13,13 +13,23 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      # Generates a build number
       - name: Generate build number
         uses: einaregilsson/build-number@v2 
         id: buildnumber
         with:
           token: ${{secrets.github_token}}
-      - uses: peterjgrainger/action-create-branch@v1.0.0
+      # Creates a new branch with the built number
+      - name: Creates Branch with Release
+        uses: peterjgrainger/action-create-branch@v1.0.0
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: "production-release-${{ steps.buildnumber.outputs.build_number }}"
+      # Creates a release 
+      - name: Create GitHub release
+        uses: Roang-zero1/github-create-release-action@production
+        with:
+          version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
