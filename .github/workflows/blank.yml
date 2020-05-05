@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - production
-
+      
 jobs:
   release-on-push:
     runs-on: ubuntu-latest
